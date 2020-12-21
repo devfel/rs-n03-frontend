@@ -5,13 +5,15 @@ import { AuthProvider } from "./context/AuthContext";
 import SignIn from "./pages/SignIn";
 import GlobalStyle from "./styles/global";
 
-const App: React.FC = () => (
-  <>
-    <GlobalStyle />
-    <AuthProvider>
-      <SignIn />
-    </AuthProvider>
-  </>
-);
+const App: React.FC = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <AuthProvider>
+        <SignIn />
+      </AuthProvider>
+    </>
+  );
+};
 
 export default App;
