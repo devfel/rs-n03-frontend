@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
 
 import api from "../services/api";
 
@@ -37,13 +37,8 @@ const AuthProvider: React.FC = ({ children }) => {
       password,
     });
 
-    console.log("response.data");
-    console.log(response.data);
-
+    // userWithoutPassword on our backend is the correct user information
     const { token, userWithoutPassword: user } = response.data;
-
-    console.log("user");
-    console.log(user);
 
     localStorage.setItem("@GoBarber:token", token);
     localStorage.setItem("@GoBarber:user", JSON.stringify(user));
@@ -54,4 +49,14 @@ const AuthProvider: React.FC = ({ children }) => {
   return <AuthContext.Provider value={{ user: data.user, signIn }}>{children}</AuthContext.Provider>;
 };
 
-export { AuthContext, AuthProvider };
+function useAuth(): AuthContextData {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+
+  return context;
+}
+
+export { AuthProvider, useAuth };
