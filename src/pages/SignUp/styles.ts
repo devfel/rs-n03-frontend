@@ -1,6 +1,7 @@
-import styled, { keyframes } from "styled-components";
-import { shade } from "polished";
-import signUpBackgroundImg from "../../assets/sign-up-background.png";
+import styled, { keyframes } from 'styled-components';
+import { shade } from 'polished';
+
+import signUpBackgroundImg from '../../assets/sign-up-background.png';
 
 export const Container = styled.div`
   height: 100vh;
@@ -13,7 +14,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   justify-content: center;
 
   width: 100%;
@@ -36,6 +36,7 @@ export const AnimationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   animation: ${appearFromRight} 1s;
 
   form {
@@ -55,27 +56,27 @@ export const AnimationContainer = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.2, "#f4ede8")};
+        color: ${shade(0.2, '#f4ede8')};
       }
     }
   }
 
   > a {
-    // Back to login link styling
     color: #ff9000;
     display: block;
     margin-top: 24px;
     text-decoration: none;
     transition: color 0.2s;
 
-    display: "flex";
+    display: flex;
     align-items: center;
 
     svg {
       margin-right: 16px;
     }
+
     &:hover {
-      color: ${shade(0.2, "#ff9000")};
+      color: ${shade(0.2, '#ff9000')};
     }
   }
 `;
